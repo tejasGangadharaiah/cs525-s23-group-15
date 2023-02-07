@@ -30,7 +30,7 @@ Step 2: $ ./test_assign1
 
 Additional test case running step
 
-Step 1-  $ ./test_assign2
+Step 1-  $ ./test_assign1_2
 
 //////////////////////////////////////////////////////////
 
