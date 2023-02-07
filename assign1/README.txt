@@ -8,4 +8,69 @@ Tejas Sinapanahalli Gangadharaiah - A20466768 - tsinapanahalligangad@hawk.iit.ed
 
 ////////////////////////	///////////////////////////////////
 
+ Github Structure submitted:
+		git
+			assign1
+			    Makefile
+			    README.txt
+			    dberror.c
+			    dberror.h
+			    storage_mgr.c
+			    storage_mgr.h
+			    test_assign1_1.c
+			    test_helper.h
+			   
+
+Instructions for running:
+
+Steps for running through makefile:
+
+Step 1: $ make
+Step 2: $ ./test_assign1	
+
+Additional test case running step
+
+Step 1-  $ ./test_assign2
+
+//////////////////////////////////////////////////////////
+
+createPageFile:
+
+1. Opens a file with mode "w+" (write and read)
+2. Allocates memory for a page using calloc, and sets the memory to zero
+3. Writes the contents of the memory block to the file
+4. Frees the memory used for the page
+5. Closes the file
+6. Returns RC_OK if successful, or RC_FILE_NOT_FOUND or RC_WRITE_FAILED if failed
+
+
+openPageFile:
+
+1.Opens a file with mode "r" (read-only)
+2.If the file is successfully opened, stores the file name and other information in the SM_FileHandle struct
+3.Returns RC_OK if successful, or RC_FILE_NOT_FOUND if failed
+
+
+getFileSize:
+
+1.Gets the current position of the file pointer
+2.Moves the file pointer to the end of the file
+3.Gets the size of the file
+4.Moves the file pointer back to its original position
+5.Returns the size of the file
+
+
+closePageFile:
+
+1.Closes the file handle pointed to by fHandle->mgmtInfo
+2.If the file handle was closed successfully, sets the mgmtInfo field of the file handle to NULL and returns RC_OK
+3.If the file handle was not closed successfully, returns RC_FILE_NOT_CLOSED
+
+
+destroyPageFile:
+
+1. Deletes the file using the remove function
+2. If the file was successfully deleted, returns RC_OK
+3. If the file was not found, returns RC_FILE_NOT_FOUND
+
  
