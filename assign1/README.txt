@@ -26,7 +26,7 @@ Instructions for running:
 Steps for running through makefile:
 
 Step 1: $ make
-Step 2: $ ./test_assign1	
+Step 2: $ ./test_assign1_1	
 
 Additional test case running step
 
