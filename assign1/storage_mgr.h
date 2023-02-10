@@ -1,14 +1,33 @@
+/*
+#ifndef __DEBUG__
+#define __DEBUG__
+#endif
+*/
+
 #ifndef STORAGE_MGR_H
 #define STORAGE_MGR_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "dberror.h"
+
+/* module wide constants */
+//#define PAGE_SIZE 10
+#define PAGE_SIZE 4096
 
 /************************************************************
  *                    pagefile bookkeeping info             *
  ************************************************************/
 typedef struct MGMT_Info {
+    FILE *fp;
     int totalNumPages;
-    //otherBookKeepngInfo
+    
+    // for future book keeping purpose 
+    int intHolder1;
+    int intHolder2;
+    char byteHolder1[100];
+    char byteHolder2[100];
 } MGMT_Info;
 
 /************************************************************
@@ -18,7 +37,7 @@ typedef struct SM_FileHandle {
 	char *fileName;
 	int totalNumPages;
 	int curPagePos;
-	void *mgmtInfo;
+	MGMT_Info mgmtInfo;
 } SM_FileHandle;
 
 typedef char* SM_PageHandle;
