@@ -74,3 +74,13 @@ destroyPageFile:
 3. If the file was not found, returns RC_FILE_NOT_FOUND
 
  
+Write Functions():
+
+a)writeBlock(): Writes data to a specific page. It checks if the page number is valid, if the file handle is not null, sets the file pointer to the correct position, writes the block, updates the current page position, and updates the total number of pages.
+
+b)writeCurrentBlock(): Writes data to the current page. It gets the current page position, calls the writeBlock() function, and returns RC_OK if the write is successful, else RC_WRITE_FAILED.
+
+
+c)appendEmptyBlock(): Appends an empty block to the file. It checks if the file handle is not null, creates a buffer of PAGE_SIZE, sets the file pointer to the end of the file, writes an empty block, and updates the total number of pages and the current page position.
+
+d)ensureCapacity(): Ensures the file has sufficient capacity. It checks if the total number of pages is less than the desired capacity, calculates the number of pages to be added, and appends empty blocks until the desired capacity is reached.
